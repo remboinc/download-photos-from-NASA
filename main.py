@@ -1,6 +1,10 @@
 import os
 from dotenv import load_dotenv
-from main import download_images, make_dir, fetch_spacex_last_launch, take_nasa_images, take_epic_images, take_all_images
+from make_directory_and_download import download_images, make_dir, take_all_images
+from telegram_space_bot import bot_send_a_massage
+from fetch_spacex_last_launch import fetch_spacex_last_launch
+from take_nasa_images import take_nasa_images
+from take_epic_images import take_epic_images
 
 
 def main():
@@ -18,6 +22,7 @@ def main():
     take_nasa_images(nasa_token)
     download_images(all_images, safe_folder)
     take_epic_images(nasa_token)
+    bot_send_a_massage()
 
 
 if __name__ == '__main__':
