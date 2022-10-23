@@ -6,9 +6,9 @@ import time
 
 
 def bot_send_a_massage():
-    token = os.getenv('BOT_TOKEN')
-    bot = telegram.Bot(token)
-    chat_id = '-1001650514384'
+    telegram_bot_token = os.getenv('BOT_TOKEN')
+    bot = telegram.Bot(telegram_bot_token)
+    chat_id = os.getenv('TELEGRAM_CHANNEL_ID')
     while True:
         path = '/Users/ok_user/PycharmProjects/untitled3/images'
         images = os.listdir(path=path)
