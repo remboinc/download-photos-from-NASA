@@ -1,6 +1,7 @@
+from pathlib import Path
 import requests
 from dotenv import load_dotenv
-from download_photos_from_NASA.make_directory_and_download import download_images, make_dir
+from make_directory_and_download import download_images, make_dir
 
 
 def fetch_spacex_last_launch():
@@ -13,13 +14,11 @@ def fetch_spacex_last_launch():
 
 def main():
     load_dotenv()
-    safe_folder = "/Users/ok_user/PycharmProjects/untitled3/images"
-    all_images = fetch_spacex_last_launch()
+    safe_folder = Path('images')
 
     make_dir(safe_folder)
-    fetch_spacex_last_launch()
-    download_images(all_images, safe_folder)
-
+    all_image_links = fetch_spacex_last_launch()
+    download_images(all_image_links, safe_folder)
 
 
 if __name__ == '__main__':

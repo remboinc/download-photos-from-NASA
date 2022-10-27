@@ -1,11 +1,14 @@
 import os
+from pathlib import Path
 import requests
 from dotenv import load_dotenv
-from download_photos_from_NASA.make_directory_and_download import download_images, make_dir
+from make_directory_and_download import download_images, make_dir
 
-def take_nasa_images(nasa_token):
+
+def get_nasa_image_links(nasa_token):
     api_url = 'https://api.nasa.gov/planetary/apod'
-    params = {'api_key': nasa_token, 'count': 30}
+    number_of_photos = 30
+    params = {'api_key': nasa_token, 'count': number_of_photos}
     response = requests.get(api_url, params=params)
     response.raise_for_status()
     nasa_images_url = []
@@ -16,13 +19,12 @@ def take_nasa_images(nasa_token):
 
 def main():
     load_dotenv()
-    safe_folder = "/Users/ok_user/PycharmProjects/untitled3/images"
+    safe_folder = Path('images')
     nasa_token = os.getenv('NASA_TOKEN')
-    all_images = take_nasa_images(nasa_token)
 
     make_dir(safe_folder)
-    take_nasa_images(nasa_token)
-    download_images(all_images, safe_folder)
+    all_image_links = get_nasa_image_links(nasa_token)
+    download_images(all_image_links, safe_folder)
 
 
 
