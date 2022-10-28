@@ -1,6 +1,5 @@
 from pathlib import Path
 import requests
-from dotenv import load_dotenv
 from make_directory_and_download import download_images, make_dir
 
 
@@ -13,7 +12,6 @@ def fetch_spacex_last_launch():
 
 
 def main():
-    load_dotenv()
     safe_folder = Path('images')
 
     make_dir(safe_folder)
