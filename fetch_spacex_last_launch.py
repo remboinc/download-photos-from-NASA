@@ -1,6 +1,6 @@
 from pathlib import Path
 import requests
-from make_directory_and_download import download_images, make_dir
+from make_directory_and_download import make_dir_and_download_images
 
 
 def fetch_spacex_last_launch():
@@ -14,9 +14,8 @@ def fetch_spacex_last_launch():
 def main():
     safe_folder = Path('images')
 
-    make_dir(safe_folder)
     all_image_links = fetch_spacex_last_launch()
-    download_images(all_image_links, safe_folder)
+    make_dir_and_download_images(all_image_links, safe_folder)
 
 
 if __name__ == '__main__':

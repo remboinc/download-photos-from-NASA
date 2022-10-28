@@ -3,7 +3,7 @@ from datetime import date
 from pathlib import Path
 import requests
 from dotenv import load_dotenv
-from make_directory_and_download import download_images, make_dir
+from make_directory_and_download import make_dir_and_download_images
 
 
 def get_epic_image_links(nasa_token):
@@ -30,9 +30,8 @@ def main():
     safe_folder = Path('images')
     nasa_token = os.getenv('NASA_TOKEN')
 
-    make_dir(safe_folder)
     all_image_links = get_epic_image_links(nasa_token)
-    download_images(all_image_links, safe_folder)
+    make_dir_and_download_images(all_image_links, safe_folder)
 
 
 if __name__ == '__main__':
