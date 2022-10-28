@@ -14,8 +14,8 @@ def get_epic_image_links(nasa_token):
     epic_images = []
     for date_and_time in response.json():
         just_date = date_and_time['date'].split()[0]
-        tuple_of_date = date.fromisoformat(just_date).timetuple()
-        (tm_year, tm_mon, tm_mday, tm_hour, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst) = tuple_of_date
+        datetime = date.fromisoformat(just_date).timetuple()
+        (tm_year, tm_mon, tm_mday, tm_hour, tm_min, tm_sec, tm_wday, tm_yday, tm_isdst) = datetime
         year = tm_year
         month = tm_mon
         day = tm_mday
