@@ -6,7 +6,7 @@ import os
 import time
 
 
-def send_a_message_using_a_bot(telegram_bot_token, chat_id):
+def send_a_message(telegram_bot_token, chat_id):
     bot = telegram.Bot(telegram_bot_token)
     while True:
         path = Path('images')
@@ -26,7 +26,7 @@ def main():
     telegram_bot_token = os.getenv('BOT_TOKEN')
     chat_id = os.getenv('TELEGRAM_CHANNEL_ID')
 
-    send_a_message_using_a_bot(telegram_bot_token, chat_id)
+    send_a_message(telegram_bot_token, chat_id)
 
 
 if __name__ == '__main__':
