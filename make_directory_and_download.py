@@ -11,5 +11,6 @@ def download_images(all_image_links, safe_folder):
         image_name = f'space_image_{index}{extension}'
         filename = os.path.join(safe_folder, image_name)
         response = requests.get(space_image)
+        response.raise_for_status()
         with open(filename, 'wb') as file:
             file.write(response.content)
