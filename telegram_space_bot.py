@@ -14,8 +14,8 @@ def send_a_message(telegram_bot_token, chat_id):
         images = list(images)
         random.shuffle(images)
         for image in images:
-            photos_directory = os.path.join(path, image)
-            with open(photos_directory, 'rb') as photo:
+            path_to_photos = os.path.join(path, image)
+            with open(path_to_photos, 'rb') as photo:
                 bot.send_document(chat_id=chat_id, document=photo)
             time.sleep(14400)
 
