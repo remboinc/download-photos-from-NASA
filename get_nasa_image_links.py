@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 import requests
 from dotenv import load_dotenv
-from make_directory_and_download import download_images
+from download_images import download_images
 
 
 def get_nasa_image_links(nasa_token):

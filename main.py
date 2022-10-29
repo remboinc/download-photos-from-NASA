@@ -2,7 +2,7 @@ import itertools
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-from make_directory_and_download import download_images
+from download_images import download_images
 from telegram_space_bot import send_message
 from fetch_spacex_last_launch import fetch_spacex_last_launch
 from get_nasa_image_links import get_nasa_image_links
