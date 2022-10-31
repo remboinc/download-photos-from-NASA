@@ -37,12 +37,12 @@ To stop the script, type Ctrl+c. KeyboardInterrupt error will be returned:
      KeyboardInterrupt
 
 
-## make_directory_and_download.py
+## download_images.py
 Creates a directory and downloads the resulting files into it.
 
 To run the script, type on the command line:
     
-    python3 make_directory_and_download.py
+    python3 download_images.py
 
 ## fetch_spacex_last_launch.py
 Sends a request to the SpaceX API, downloads the resulting images and saves to the selected directory.
